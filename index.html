@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Geocaches | Grove City, PA</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+function initMap() {
+  var geo1 = {lat: 41.1469, lng: -80.21861};
+  var geo2 = {lat: 41.20397, lng: -79.9734};
+  var geo3 = {lat: 41.15953, lng: -80.10938};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: geo1
+  });
+
+//  Make an array of the LatLng's of the markers you want to show
+var LatLngList = new Array (new google.maps.LatLng (41.1469, -80.21861), new google.maps.LatLng (41.20397, -79.9734), new google.maps.LatLng(41.15953,-80.10938));
+//  Create a new viewpoint bound
+var bounds = new google.maps.LatLngBounds ();
+//  Go through each...
+for (var i = 0, LtLgLen = LatLngList.length; i < LtLgLen; i++) {
+  //  And increase the bounds to take this point
+  bounds.extend (LatLngList[i]);
+}
+//  Fit these bounds to the map
+map.fitBounds (bounds);
+
+
+  var marker1 = new google.maps.Marker({
+    position: geo1,
+    map: map,
+    title: 'Geocache 1'
+  });
+   var marker1 = new google.maps.Marker({
+    position: geo2,
+    map: map,
+    title: 'Geocache 2'
+  });
+   var marker1 = new google.maps.Marker({
+    position: geo3,
+    map: map,
+    title: 'Geocache 3'
+  });
+}
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiRUyG4NAbS1PzoC_kKUADMZSoY-jz9gM&signed_in=true&callback=initMap"></script>
+  </body>
+</html>
