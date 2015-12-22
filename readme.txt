@@ -1,0 +1,1 @@
+Shows the location of three Geocaches near Grove City, PA and centers them on the screen.
